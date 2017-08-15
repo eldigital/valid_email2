@@ -1,3 +1,3 @@
 module ValidEmail2
-  VERSION = "1.2.18"
+  VERSION = "2.0.0"
 end

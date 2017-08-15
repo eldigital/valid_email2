@@ -1,3 +1,19 @@
+## Version 2.0.0
+Add validator namespaced under `ValidEmail2` https://github.com/lisinge/valid_email2/pull/79
+Deprecate global `EmailValidator` in favor of the namespaced one.
+
+## Version 1.2.22
+Added more disposable email domains (https://github.com/lisinge/valid_email2/pull/80)
+
+## Version 1.2.21
+Added More disposable email domains (https://github.com/lisinge/valid_email2/pull/77, https://github.com/lisinge/valid_email2/pull/78)
+
+## Version 1.2.20
+Added more disposable email domains (https://github.com/lisinge/valid_email2/pull/76)
+
+## Version 1.2.19
+Added more disposable email domains (https://github.com/lisinge/valid_email2/pull/73, https://github.com/lisinge/valid_email2/pull/74 and https://github.com/lisinge/valid_email2/pull/75)
+
 ## Version 1.2.18
 Added more disposable email domains (https://github.com/lisinge/valid_email2/pull/70, https://github.com/lisinge/valid_email2/pull/71 and https://github.com/lisinge/valid_email2/pull/72)
 

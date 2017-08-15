@@ -39,28 +39,28 @@ Or install it yourself as:
 If you just want to validate that it is a valid email address:
 ```ruby
 class User < ActiveRecord::Base
-  validates :email, presence: true, email: true
+  validates :email, presence: true, 'valid_email_2/email': true
 end
 ```
 
 To validate that the domain has a MX record:
 ```ruby
-validates :email, email: { mx: true }
+validates :email, 'valid_email_2/email': { mx: true }
 ```
 
 To validate that the domain is not a disposable email:
 ```ruby
-validates :email, email: { disposable: true }
+validates :email, 'valid_email_2/email': { disposable: true }
 ```
 
 To validate that the domain is not blacklisted (under vendor/blacklist.yml):
 ```ruby
-validates :email, email: { blacklist: true }
+validates :email, 'valid_email_2/email': { blacklist: true }
 ```
 
 All together:
 ```ruby
-validates :email, email: { mx: true, disposable: true }
+validates :email, 'valid_email_2/email': { mx: true, disposable: true }
 ```
 
 > Note that this gem will let an empty email pass through so you will need to
@@ -89,10 +89,30 @@ end
 ## Requirements
 
 This gem requires Rails 3.2 or 4.0 or higher. It is tested against both versions using:
-* Ruby-2.0
-* Ruby-2.1
 * Ruby-2.2
 * Ruby-2.3
+* Ruby-2.4
+
+## Upgrading to v2.0.0
+
+In version 1.0 of valid_email2 we only defined the `email` validator.  
+But since other gems also define a `email` validator this can cause some unintended
+behaviours and emails that shouldn't be valid are regarded valid because the
+wrong validator is used by rails.
+
+So in version 2.0 we decided to deprecate using the `email` validator directly
+and instead define a `valid_email_2/email` validator to be sure that the correct
+validator gets used.
+
+So this:
+```ruby
+validates :email, email: { mx: true, disposable: true }
+```
+
+Becomes this:
+```ruby
+validates :email, 'valid_email_2/email': { mx: true, disposable: true }
+```
 
 ## Contributing
 
